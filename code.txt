@@ -1,0 +1,44 @@
+1.
+Artist.find_by(name: 'Queen')
+id = Artist.find_by(name: 'Queen').id
+Album.where(artist_id: id)
+
+2.
+id=MediaType.find_by(name: 'Protected MPEG-4 video file').id
+Track.where(media_type_id: id).count
+
+3.
+id=Genre.find_by(name: 'Hip Hop/Rap').id
+Track.where(genre_id: id).count
+
+4.
+id=Genre.find_by(name: 'Hip Hop/Rap').id
+Track.where(genre_id: id).count
+
+5.
+Track.sum(:milliseconds)
+
+6.
+id = MediaType.find_by(name: 'MPEG audio file').id
+Track.where(media_type_id: id).order(:unit_price).first.unit_price
+
+7.
+id = MediaType.find_by(name: 'MPEG audio file').id
+Track.where(media_type_id: id).order(:unit_price).first.name
+
+8.
+Artist.all.order(:created_at)
+Artist.all.order(:created_at).first
+Artist.all.order(:created_at).second
+Artist.all.order(:created_at).limit(2)
+
+9.
+id=Genre.find_by(name: 'Electronica/Dance').id
+Track.where(genre_id: id).order(:unit_price).last.name
+
+10.
+id_genre = Genre.find_by(name: 'Electronica/Dance').id
+genre_track= Track.where(genre_id: id)
+
+id_media = MediaType.find_by(name: 'MPEG audio file').id
+genre_track.where(media_type_id: id_media)
